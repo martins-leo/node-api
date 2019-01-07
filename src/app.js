@@ -2,16 +2,13 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const route = router.get('/', (req, res, next) => {
-    res.status(200).send({
-        title: 'Node API Store',
-        version: '0.0.1'
-    });
-});
+//conecta no banco
+mongoose.connect('mongodb://leonardo:leo123@ds032319.mlab.com:32319/nodestore');
 
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
