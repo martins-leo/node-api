@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //conecta no banco
 mongoose.connect('mongodb://leonardo:leo123@ds032319.mlab.com:32319/nodestore');
 
+//carrega as Models
+const Product = require('./models/product');
+
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
